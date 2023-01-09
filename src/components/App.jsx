@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Statistics from './Statistics/Statistics';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
-import SectionTitle from './SectionTitle/SectionTitle';
+import Section from './Section/Section';
 import Notification from './Notification/Notification';
 
 import style from './App.module.css';
@@ -35,13 +35,13 @@ export class App extends Component {
   
     return (
       <div className={style.container}>
-        <SectionTitle title="Please leave feedback">
+        <Section title="Please leave feedback">
           <FeedbackOptions
             options={options}
             leaveFeedback={this.leaveFeedback}
           />
-        </SectionTitle>
-        <SectionTitle title="Statistics">
+        </Section>
+        <Section title="Statistics">
           {this.feedbackCounter() > 0 ? (
             <Statistics
               good={good}
@@ -53,7 +53,7 @@ export class App extends Component {
           ) : (
             <Notification message="There is no feedback" />
           )}
-        </SectionTitle>
+        </Section>
       </div>
     );
   }
